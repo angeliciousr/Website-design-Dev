@@ -1,0 +1,154 @@
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>Student Registration Form</title>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js">
+    </script>
+     <!--validation for nationality when choosing mauritian or other-->
+    <script  type="text/javascript"> 
+        $(function () {
+       $("#nationality").change(function () {
+       if ($(this).val() == 2) {
+       $("#NIC").removeAttr("disabled");
+       $("#NIC").focus();
+       } else {
+       $("#NIC").attr("disabled", "disabled");
+       }
+       });
+       });
+ 
+  function changestatus(){
+    var status= document.getElementById("nationality");
+    if(status.value==3)
+    {
+        document.getElementById("other").style.visibility="visible";
+  } else if(status.value==2)
+  {
+        document.getElementById("other").style.visibility="hidden";
+  }
+}
+
+
+//validation of password
+   function Validate() {
+        var password = document.getElementById("Password").value;
+        var confirmPassword = document.getElementById("Password2").value;
+        if (password != confirmPassword) {
+            alert("Passwords do not match.");
+            return false;
+        }
+        return true;
+    }
+</script>
+    
+   </script>
+    <link rel='stylesheet' href='style.css' type='text/css' />
+    </head>
+
+    <body >
+    <div class="mail">
+       
+    <form name="form1" onsubmit="return GEEKFORGEEKS()" id ="form1"  action="#"  autocomplete="on|off">
+        <h2>Student Registration Form</h2>
+        <div class="input-control">
+  <td>
+    <tr>
+        First Name :
+        <input onload='document.form1.text1.focus()' type="text" id="text1" name="text1" autocomplete="off"  required/>
+    </tr>
+  </td>
+</br>
+  <td>
+    <tr>
+        Last Name :
+        <input onload='document.form1.text1.focus()' type="text" id="text1" name="text1" autocomplete="off"  required/>
+    </tr>
+  </td>
+<td>
+</br>
+
+<tr>
+    Street: <input type="text" name="street" 
+    style="height:90px;" autocomplete="off" required/>
+</tr>
+</td>
+</br>
+<tr>
+    City: <input type="text" name="city" required/>
+</tr>
+</td>
+</br>
+<tr>
+    Phone Number: <input type="tel" id="phone" name="phone"   maxlength = "9" autocomplete="off" required/>
+</tr>
+</td>
+</br>
+<tr>
+    Email: <input type="text" id="email" name="email"  autocomplete="off" required/>
+</tr>
+</td>
+</br>
+<tr>
+    Date of Birth:<input type="date" id="dob" name="dob" autocomplete="off" required/>
+</tr>
+</td>
+</br>
+<tr>
+     Nationality: 
+     <select name="nationality"  id="nationality" onchange="changestatus()">
+        <option value="1">Select an option</option>
+        <option value="2">Mauritian</option>
+        <option value="3">other</option>
+    </select>
+</br>
+    NIC: <input type="text" id="NIC" name="NIC" maxlength = "14"  autocomplete="off" disabled ="disabled">    
+</tr>
+</td>
+</br>
+</br>
+<tr>
+    <div style="visibility:hidden;"  id="other">
+        Specify other:<input type="text"  id="other" name="other" autocomplete="off"  /></div>
+    
+</tr>
+</td>
+</br>
+<tr >
+    Passport: <input type="text" id="Passport" name="Passport"  maxlength = "8"
+    required pattern="[a-zA-Z0-9]+" autocomplete="off" />
+</tr>
+</td>
+</br>
+</td>
+<tr >
+    Password: <input type="password" id="Password" name="Password" autocomplete="off"  
+    required pattern= "^(?!.* )(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9]).{8,}$" required />
+</tr>
+</td>
+</br>
+<tr >
+    Confirm Password: <input type="password" id="Password2" name="Password2" autocomplete="off"  
+    required pattern= "^(?!.* )(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9]).{8,}$" required />
+</tr>
+</td>
+</br>
+</br>
+
+    </div>
+    <input type = "checkbox">   I agree to the terms and conditions as set out by the user agreement.
+    </br>
+</br>
+
+        <a href="confirmation.html" onclick="checkAge(event); return Validate(); ValidateEmail(document.form1.email); allLetter(document.form1.text1);" > <button type="submit" class="btn">Register</button></a>
+
+       
+        <input type="reset"  onclick="return confirm('Do you really want to reset?')" />
+
+   
+    </form>
+    
+</div>
+    <script src="index.js"> </script>
+    </body>
+    </head>
